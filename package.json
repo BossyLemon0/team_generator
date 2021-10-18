@@ -1,0 +1,28 @@
+{
+  "dependencies": {
+    "inquirer": "^8.2.0"
+  },
+  "devDependencies": {
+    "jest": "^27.2.5"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "name": "team_generator",
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BossyLemon0/team_generator.git"
+  },
+  "author": "Omar D. Ramirez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BossyLemon0/team_generator/issues"
+  },
+  "homepage": "https://github.com/BossyLemon0/team_generator#readme"
+}
