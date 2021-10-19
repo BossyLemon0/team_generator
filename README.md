@@ -33,7 +33,9 @@ Once you have installed everything, go inside the terminal and run the command, 
 ## Contribution Guidelines
 
 John had helped me debug the an issue of the test cases not being read near the start of the project.
+
 Link to his github below:
+
 [John's Github](https://github.com/ESThing64)
 
 
@@ -50,9 +52,11 @@ This application uses [License: MIT](https://opensource.org/licenses/MIT)
 ## Questions
 
 To see more of my projects visit my page below:
+
 [My GitHub](https://github.com/BossyLemon0)
 
 If you have any questions you can contact me through my email:
+
 omardramirez2002@gmail.com
 
 [Back to Top](#Team_Generator "Goto top")
