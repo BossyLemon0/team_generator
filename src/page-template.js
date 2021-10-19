@@ -1,3 +1,4 @@
+
 // create the team
 const generateTeam = team => {
 
@@ -74,14 +75,12 @@ const generateTeam = team => {
         .map(intern => generateIntern(intern))
         .join("")
     );
-
+console.log(html);
     return html.join("");
-
 }
 
 // export function to generate entire page
 module.exports = team => {
-
     return `
     <!DOCTYPE html>
 <html lang="en">
