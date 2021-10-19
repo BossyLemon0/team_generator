@@ -32,7 +32,9 @@ Once you have installed everything, go inside the terminal and run the command, 
 
 ## Contribution Guidelines
 
-none
+John had helped me debug the an issue of the test cases not being read near the start of the project.
+Link to his github below:
+[John's Github](https://github.com/ESThing64)
 
 
 ## Tests
