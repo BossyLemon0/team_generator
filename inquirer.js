@@ -207,7 +207,7 @@ function InternQ(){
             {
                 // type:'confirm',
                 name:'exit',
-                message: 'Are you sure you want to leave?'
+                message: 'Press enter to leave'
 
             }
         ];
