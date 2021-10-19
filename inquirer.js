@@ -1,3 +1,4 @@
+const fs = require ('fs');
 const page_template = require ('./src/page-template');
 const Employee = require ('./lib/Employee');
 const Manager = require ('./lib/Manager');
@@ -12,10 +13,11 @@ console.log(Manager);
 console.log(Engineer);
 console.log(Intern);
 
-
+const employee = []
 
 
 function ManagerQ(){
+
 const questions = [
 
     {
@@ -47,16 +49,21 @@ const questions = [
         type:'list',
         name:'employee',
         message:`Who's on your team?`,
-        choices: ['engineer','intern','Exit'],
+        choices: ['engineer','intern', 'exit'],
     }
 ];
 inquirer.prompt(questions)
 .then((answers)=>{ 
     //method 1
-    const manager= [new Manager(answers.ManagerName, answers.EmployeeId, answers.ManagerEmail, answers.OfficeNumber)]
-    console.log(manager);
-    page_template(manager);
-    console.log(page_template);
+    // const manager = [new Manager(answers.ManagerName, answers.EmployeeId, answers.ManagerEmail, answers.OfficeNumber)]
+    // console.log(manager);
+    // page_template(manager);
+    // console.log(page_template);
+
+    //method 2
+       const manager = new Manager(answers.ManagerName, answers.EmployeeId, answers.ManagerEmail, answers.OfficeNumber)
+       employee.push(manager);
+       console.log(employee);
 
     if (answers.employee === "engineer"){
         EngineerQ();
@@ -64,10 +71,13 @@ inquirer.prompt(questions)
     if (answers.employee === "intern" ){
         InternQ();
     }
-    else{
-        return "log the info you found"
+    if (answers.employee === "exit"){
+        linkage();
     }
-});
+})
+// .then((employee) => {
+//   console.log(employee);
+// })
 }
 
 function EngineerQ(){
@@ -102,16 +112,21 @@ const newQ = [
         type:'list',
         name:'employee',
         message:`Would you like to add another person?`,
-        choices: ['engineer','intern','Exit'],
+        choices: ['engineer','intern','exit'],
     }
 ];
 inquirer.prompt(newQ)
 .then((answers)=>{ 
     //method 1
-    const engineer = [new Engineer(answers.EngineerName, answers.EngineerId, answers.EngineerEmail, answers.GitHub)]
-    console.log(engineer);
-    page_template(engineer);
-    console.log(page_template);
+    // const engineer = [new Engineer(answers.EngineerName, answers.EngineerId, answers.EngineerEmail, answers.GitHub)]
+    // console.log(engineer);
+    // page_template(engineer);
+    // console.log(page_template);
+
+    //method 2
+    const engineer = new Engineer(answers.EngineerName, answers.EngineerId, answers.EngineerEmail, answers.GitHub);
+    employee.push(engineer);
+    console.log(employee);
 
  if (answers.employee === "engineer"){
     EngineerQ();
@@ -119,8 +134,8 @@ inquirer.prompt(newQ)
 if (answers.employee === "intern" ){
     InternQ();
 }
-else{
-    return "log you found"
+if (answers.employee === "exit"){
+    linkage();
 }
 })
 }
@@ -131,7 +146,7 @@ function InternQ(){
         {
             type:'input',
             name:'InternName',
-            message:`What is the team mananger's name?`,
+            message:`What is the team intern's name?`,
             default:'Baki Hanma'
         },
     
@@ -157,16 +172,21 @@ function InternQ(){
             type:'list',
             name:'employee',
             message:`Would you like to add another person?`,
-            choices: ['engineer','intern','Exit'],
+            choices: ['engineer','intern','exit'],
         }
     ];
     inquirer.prompt(questions)
     .then((answers)=>{ 
         //method 1
-        const intern = [new Intern(answers.InternName, answers.InternId, answers.InternEmail, answers.School)]
-        console.log(intern);
-        page_template(intern);
-        console.log(page_template);
+        // const intern = [new Intern(answers.InternName, answers.InternId, answers.InternEmail, answers.School)]
+        // console.log(intern);
+        // page_template(intern);
+        // console.log(page_template);
+
+        //method 2
+            const intern = new Intern(answers.InternName, answers.InternId, answers.InternEmail, answers.School);
+            employee.push(intern);
+            console.log(employee);
 
 
         if (answers.employee === "engineer"){
@@ -175,13 +195,38 @@ function InternQ(){
         if (answers.employee === "intern" ){
             InternQ();
         }
-        else{
-            return "log you found"
+        if (answers.employee === "exit"){
+            linkage();
         }
     });
     }
+
+    function linkage(){
+        const questions = [
     
-ManagerQ();
+            {
+                // type:'confirm',
+                name:'exit',
+                message: 'Are you sure you want to leave?'
+
+            }
+        ];
+        inquirer.prompt(questions)
+        .then(()=>{ 
+            employee;
+            fs.writeFile('./output/index.html', page_template(employee), (err) =>{
+                err ? console.log(err) : console.log("Your Html file has been created in the output folder! Hooray!");
+                }) ;
+        });
+    }
+
+
+    ManagerQ();
+
+
+// const link = function linkage(PeepObjects){
+// page_template(PeepObjects);
+// }
 
 
 
