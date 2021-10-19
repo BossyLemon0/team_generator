@@ -29,6 +29,7 @@ npm i
 Once you have installed everything, go inside the terminal and run the command, "node inquirer.js". This will create a pop-up of prompts for your team. After completing the questions go into the output folder, find your html file and open it in browser. From there you can always go back into the terminal and go through the questions again in order to redo.
 
 ![Application in action](./images/My_team.jpeg)
+[Application video](https://watch.screencastify.com/v/Ctcb8cy0Dc1WEuv3zDil)
 
 ## Contribution Guidelines
 
